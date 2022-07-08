@@ -1,10 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const Return = (props) => {
   let navigate = useNavigate();
-  // let name = useSelector((state) => state.Quest.name);
+  const data = useSelector(state=>state.Quest.QnA);
+  const user_answer_list = useSelector(state=>state.Quest.user_answer_list);
+    const _score = (100/ data.length) * data.filter((q,idx)=>{
+      return q.answer === user_answer_list[idx];
+     
+    }).length
   return (
     <GoBackStyled>
       <h3>
@@ -13,7 +19,7 @@ const Return = (props) => {
         최재근 에 대해서 잘 알고 계시네요
       </h3>
       <Hstyled>
-        <NameStyled>100</NameStyled>점 입니다.
+        <NameStyled>{_score}</NameStyled>점 입니다.
       </Hstyled>
       <MessageStyled
         onClick={() => {

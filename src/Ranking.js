@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 const Message = () => {
   const data = useSelector((state) => state.Desc.rank);
 
+
   const userList = data.sort((a, b) => {
     return b.score - a.score;
   });
@@ -34,6 +35,7 @@ export default Message;
 
 const Container = styled.div`
   text-align: center;
+  margin-top:-.5rem;
   ul {
     padding: 1rem;
   }
@@ -54,22 +56,19 @@ const Container = styled.div`
   }
 `;
 const HeaderStyle = styled.header`
-  border: 1px solid #ccc;
+border-top:1px solid #ccc;
+border-bottom:1px solid #ccc;
   margin: 0 auto;
   padding: 0.5rem 0;
 `;
 const ScrollContainer = styled.div`
-  border: 1px solid #ccc;
   height: 300px;
   overflow-y: scroll;
   margin: 0 auto;
   background-color: skyblue;
 `;
 const ButtonContainer = styled.div`
-  position: fixed;
-  bottom: 5%;
-  left: 47%;
-  transform: translate(-50%);
+  padding:.5rem;
   button {
     padding: 0.5rem;
     border: none;

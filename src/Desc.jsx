@@ -22,7 +22,7 @@ const initState = {
       desc: " 감사원을 둔다. 국회의원과 정부는 법률안을 제출할 수 있다."
     }
   ]
-};
+}; 
 
 const CREATE = "user/CREATE";
 

@@ -8,6 +8,12 @@ const Message = () => {
   const desc = useRef(null);
   let navigate = useNavigate();
   const name = useSelector((state) => state.Quest.name);
+  const data = useSelector(state=>state.Quest.QnA);
+  const user_answer_list = useSelector(state=>state.Quest.user_answer_list);
+    const _score = (100/ data.length) * data.filter((q,idx)=>{
+      return q.answer === user_answer_list[idx];
+     
+    }).length
   return (
     <Container>
       <dl>
@@ -24,7 +30,7 @@ const Message = () => {
           navigate("/ranking");
           dispatch(
             CreateUser({
-              score: 100,
+              score: _score,
               name: name,
               desc: desc.current.value
             })

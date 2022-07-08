@@ -3,7 +3,7 @@ import Start from "./Start";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { CreateName, UpdateScore } from "./Quest";
+import { CreateName} from "./Quest";
 
 const Main = (props) => {
   let navigate = useNavigate();
@@ -24,11 +24,9 @@ const Main = (props) => {
           value="입력하고 시작히기"
           onClick={() => {
             const value = props.nameRef.current.value;
-            // props.nameRef.current.value = "";
             props.setNum((props.numRef.current = 0));
             dispatch(CreateName(value));
-            navigate("/question01");
-            dispatch(UpdateScore(props.numRef.current));
+            navigate("/question");
           }}
           className="btn submit"
         />

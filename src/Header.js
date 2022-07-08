@@ -1,15 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Icon from "./img/icon.jpg";
 import styled from "styled-components";
+import { useSelector,useDispatch } from "react-redux";
+import { resetAnswer } from "./Quest";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
+  const user_answer_list = useSelector((state)=> state.Quest.user_answer_list);
   return (
     <HeaderStyled>
       <img src={Icon} alt="who are you 이미지" />
-      <Link to="/">
-        <HStyled>처음으로</HStyled>
-      </Link>
+        <HStyled onClick={()=>{
+          dispatch(resetAnswer());
+          navigate("/who");
+        }}>처음으로</HStyled>
     </HeaderStyled>
   );
 };
@@ -22,9 +28,6 @@ const HeaderStyled = styled.header`
   img {
     width: 100%;
   }
-  a {
-    text-decoration: none;
-  }
 `;
 
 const HStyled = styled.h5`
@@ -35,4 +38,5 @@ const HStyled = styled.h5`
   padding: 0.5rem;
   color: #000;
   text-align: center;
+  cursor:pointer;
 `;
