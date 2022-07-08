@@ -9,14 +9,19 @@ import Return from "./Return";
 import Score from "./Score";
 import Ranking from "./Ranking";
 import Message from "./Message";
+import Spinner from "./Spinner";
 
 export default function App() {
   const numRef = useRef(0);
   const [num, setNum] = useState(numRef.current);
   const name = useSelector((state) => state.Quest.name);
+  const is_loaded = useSelector(state=>state.Desc.is_loaded); 
   const nameRef = useRef(null);
+
+
   return (
     <div className="App">
+      {!is_loaded && <Spinner/>}
       <Header />
       <Routes>
         <Route
@@ -35,7 +40,6 @@ export default function App() {
           path="/question"
           element={<Quiz num={num} setNum={setNum} numRef={numRef} />}
         />
-        <Route path="/goBack" element={<Return />} />
         <Route path="/score" element={<Score />} />
         <Route path="/message" element={<Message />} />
         <Route path="/ranking" element={<Ranking />} />

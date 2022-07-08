@@ -22,11 +22,15 @@ const Header = () => {
 export default Header;
 
 const HeaderStyled = styled.header`
-  width: 200px;
+display:flex;
+flex-direction: column;
+justify-content:center;
+  width: 100%;
   padding: 1.5em 0;
   margin: 0 auto;
   img {
-    width: 100%;
+    width:50%;
+    margin:0 auto;
   }
 `;
 

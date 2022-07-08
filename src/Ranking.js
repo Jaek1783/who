@@ -1,14 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import { loadRankFB } from "./Desc";
 const Message = () => {
+  const dispatch = useDispatch();
   const data = useSelector((state) => state.Desc.rank);
-
-
   const userList = data.sort((a, b) => {
     return b.score - a.score;
   });
   // userList();
+
+  React.useEffect(()=>{
+    dispatch(loadRankFB());
+  },[]);
   return (
     <Container>
       <HeaderStyle>{data.length}명 중 당신의 랭킹은?</HeaderStyle>

@@ -25,8 +25,14 @@ const Main = (props) => {
           onClick={() => {
             const value = props.nameRef.current.value;
             props.setNum((props.numRef.current = 0));
-            dispatch(CreateName(value));
-            navigate("/question");
+            if(value === ""){
+              alert('이름을 적어주세요')
+            }
+            else{
+              dispatch(CreateName(value));
+              navigate("/question");
+            }
+            
           }}
           className="btn submit"
         />

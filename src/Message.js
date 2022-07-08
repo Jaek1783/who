@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { CreateUser } from "./Desc";
+import { addRankFB, CreateUser } from "./Desc";
 const Message = () => {
   let dispatch = useDispatch();
   const desc = useRef(null);
@@ -10,6 +10,7 @@ const Message = () => {
   const name = useSelector((state) => state.Quest.name);
   const data = useSelector(state=>state.Quest.QnA);
   const user_answer_list = useSelector(state=>state.Quest.user_answer_list);
+  console.log(name);
     const _score = (100/ data.length) * data.filter((q,idx)=>{
       return q.answer === user_answer_list[idx];
      
@@ -28,14 +29,18 @@ const Message = () => {
       <ButtonStyled
         onClick={() => {
           navigate("/ranking");
-          dispatch(
-            CreateUser({
-              score: _score,
-              name: name,
-              desc: desc.current.value
-            })
-          );
-          // console.log(title.current.value, desc.current.value);
+          dispatch(addRankFB({
+              score:_score,
+              name:name,
+              desc:desc.current.value
+            }));
+          // dispatch(
+          //   CreateUser({
+          //     score: _score,
+          //     name: name,
+          //     desc: desc.current.value
+          //   })
+          // );
         }}
       >
         남기고 랭킹보러가기

@@ -11,12 +11,11 @@ const Return = (props) => {
       return q.answer === user_answer_list[idx];
      
     }).length
+const ScoreCheck = _score < 50 ? "친한 거 맞죠? 조금 더 가까워지세요^^;;;" : "와우~ 정말친하네요^^ 설마 본인?";
   return (
     <GoBackStyled>
       <h3>
-        와우~ 최재근씨 본인이세요?
-        <br />
-        최재근 에 대해서 잘 알고 계시네요
+        {ScoreCheck}
       </h3>
       <Hstyled>
         <NameStyled>{_score}</NameStyled>점 입니다.

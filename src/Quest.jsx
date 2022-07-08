@@ -1,6 +1,6 @@
 // Question List
 const initState = {
-  name: [],
+  name:"",
   QnA: [
     { id: 1, text: "나이는 30대이다.", answer:false },
     { id: 2, text: "성별은 남자이다.", answer:true },
@@ -36,7 +36,7 @@ export default function reducer(state = initState, action = {}) {
       return { QnA: new_QnA };
     }
     case "question/NAME": {
-      const new_name = [action.name];
+      const new_name = action.name;
       const new_QnA = [...state.QnA];
       const new_answer = [...state.user_answer_list];
       return { name: new_name, QnA: new_QnA, user_answer_list:new_answer };
