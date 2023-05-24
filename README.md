@@ -2,7 +2,7 @@
 ![스크린샷 2022-07-22 오전 10 06 39](https://user-images.githubusercontent.com/73649967/180340012-91fcaf70-db8d-491e-b519-ec150f5c461f.png)
 
 ## 주소
-https://www.youknowme.tk
+[https://jaek1783.github.io/who/](https://jaek1783.github.io/who/)
 
 ## 🛠 프로젝트 소개
 
